@@ -1,0 +1,42 @@
+[user]
+	name = Todd Taomae
+	email = ttaomae@gmail.com
+
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = false
+
+[alias]
+	ap = add --patch
+	adp = add --patch
+	ai = add --interactive
+	adi = add --interactive
+	df = diff
+	dc = diff --cached
+	dfs = diff --stat
+	dfss = diff --shortstat
+	co = checkout
+	st = status
+	ci = commit --verbose
+	cia = commit --amend --verbose
+	br = branch
+	rb = rebase
+	rbi = rebase --interactive
+	rbc = rebase --continue
+	rba = rebase --abort
+	rs = reset
+	sh = stash
+	lg = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset - %C(green)%<(20)%ar%Creset %s'
+	lg1 = !git lg
+	lg2 = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset - %C(green)%<(20)%ar%Creset %<(80,trunc)%s %C(bold yellow)%d%Creset'
+	lg3 = log -n 10 --color --graph --pretty=format:'%C(bold red)%h%Creset - %C(bold green)%ai (%ar)%Creset %C(green)%cr%Creset %C(bold yellow)%d%Creset%n          %s %C(cyan)<%an>%Creset%n'
+[color.status]
+	changes = bold red
+	untracked = bold red
+	added = bold green
+[color.diff]
+	new = bold green
+	old = bold red
+[diff]
+	compactionHeuristic = true
+
