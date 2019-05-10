@@ -4,7 +4,7 @@ Set-PSReadlineOption -BellStyle None
 
 Set-Alias -Name vi  -Value nvim
 Set-Alias -Name vim -Value nvim
-Set-Alias -Name cat -Value bat
+Set-Alias -Name cat -Value bat -Option AllScope
 
 function prompt() {
     $err = $?
