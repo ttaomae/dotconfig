@@ -18,7 +18,7 @@ Script execution must be enabled to run the installation script. Scoop also
 requires script execution, so do not disable it after the installation is done.
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 .\install-software.ps1
 ```
 
@@ -32,6 +32,7 @@ The following configuration files are provided.
 | Neovim | `.vimrc` | `~/.config/nvim/init.vim` (Unix) <br> `~\AppData\Local\nvim\init.vim` (Windows) |
 | Visual Studio Code | `vscode.settings.json` | `~\AppData\Roaming\Code\User\settings.json` (Windows) |
 | PowerShell | `Profile.ps1` | `~\Documents\WindowsPowerShell\Profile.ps1` (Windows) |
+| PowerShell Core | `Profile.ps1` | `~\Documents\PowerShell\Profile.ps1` (Windows) |
 
 ### Symlinks
 It is recommended that you create symlinks between configuration files in this
