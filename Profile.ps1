@@ -8,6 +8,8 @@ Set-Alias -Name cat -Value bat -Option AllScope
 
 # ctrl-d ==> exit PowerShell.
 Set-PSReadlineKeyHandler -Chord ctrl+d -Function ViExit
+# ctrl-w ==> delete word.
+Set-PSReadlineKeyHandler -Chord ctrl+w -Function BackwardDeleteWord
 
 function prompt() {
     $err = $?
