@@ -1,0 +1,13 @@
+{
+    "homepage": "https://visualvm.github.io/",
+    "description": "VisualVM is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.",
+    "version": "1.4.2",
+    "url": "https://github.com/visualvm/visualvm.src/releases/download/1.4.2/visualvm_142.zip",
+    "hash": "5d77e07fb7bf564f97a1dd9aa3cd629b3cc4b9b21dbec45b8dfdf058b541388a",
+    "extract_dir": "visualvm_142",
+    "bin": [
+        ["bin\\visualvm.exe", "visualvm", "--console suppress"],
+        ["bin\\visualvm.exe", "visualvm-console"]
+    ],
+    "post_install": "\"visualvm_jdkhome=`\"$env:JAVA_HOME`\"\" | Out-File -Append $dir\\etc\\visualvm.conf"
+}
