@@ -18,6 +18,7 @@ use Scoop to install the following software:
     * [bat](https://github.com/sharkdp/bat)
 * System Administration
     * [Rapid Environment Editor](https://www.rapidee.com/en/about)
+    * [WinDirStat](https://windirstat.net/)
     * [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 
 Script execution must be enabled to run the installation script. Scoop also
