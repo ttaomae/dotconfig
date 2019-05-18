@@ -7,7 +7,7 @@ use Scoop to install the following software:
 * Development
     * [ConEmu](https://conemu.github.io/)
     * [Git](https://git-scm.com/)
-    * OpenJDK 11 HotSpot ([AdopOpenJDK](https://adoptopenjdk.net/))
+    * OpenJDK 11 HotSpot ([AdoptOpenJDK](https://adoptopenjdk.net/))
     * [Maven](http://maven.apache.org/)
     * [VisualVM](https://visualvm.github.io/)
 * Utilities
