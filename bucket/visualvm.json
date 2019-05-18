@@ -6,8 +6,7 @@
     "hash": "5d77e07fb7bf564f97a1dd9aa3cd629b3cc4b9b21dbec45b8dfdf058b541388a",
     "extract_dir": "visualvm_142",
     "bin": [
-        ["bin\\visualvm.exe", "visualvm", "--console suppress"],
-        ["bin\\visualvm.exe", "visualvm-console"]
-    ],
-    "post_install": "\"visualvm_jdkhome=`\"$env:JAVA_HOME`\"\" | Out-File -Append $dir\\etc\\visualvm.conf"
+        ["bin\\visualvm.exe", "visualvm", "--console suppress", "--jdkhome", "$env:JAVA_HOME"],
+        ["bin\\visualvm.exe", "visualvm-console", "--jdkhome", "$env:JAVA_HOME"]
+    ]
 }
