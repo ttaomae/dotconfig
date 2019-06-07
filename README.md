@@ -16,6 +16,7 @@ use Scoop to install the following software:
     * [Vagrant](https://www.vagrantup.com/)
     * [ripgrep](https://github.com/BurntSushi/ripgrep)
     * [bat](https://github.com/sharkdp/bat)
+    * [less](http://www.greenwoodsoftware.com/less/)
 * System Administration
     * [Rapid Environment Editor](https://www.rapidee.com/en/about)
     * [WinDirStat](https://windirstat.net/)

@@ -8,7 +8,7 @@ scoop install `
     <# development #> `
     extras/conemu git java/adopt11-hotspot maven ttaomae/visualvm
     <# utilites #> `
-    7zip neovim ripgrep vagrant bat
+    7zip neovim ripgrep vagrant bat less
     <# admin #> `
     extras/rapidee extras/windirstat ttaomae/procexp
 
