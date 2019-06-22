@@ -17,6 +17,8 @@ set showcmd  " Show command in bottom line.
 
 set ruler  " Show current cursor position in status line.
 
+set sidescroll=1
+
 " Show tab, trailing spaces, and line wraps.
 set list
 set listchars=tab:»-,trail:~,extends:›,precedes:‹
