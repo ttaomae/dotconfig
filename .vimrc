@@ -46,5 +46,5 @@ filetype on  " Detect file type based on extention and possibly contents.
 filetype plugin on  " Load plugins for specific file types.
 filetype indent on  " Load indent files for specific file types.
 
-set splitright " :split right
-set splitbelow " :vsplit below
+set splitbelow " :split below
+set splitright " :vsplit right
