@@ -27,9 +27,21 @@
 	rs = reset
 	sh = stash
 	lg = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset - %C(green)%<(20)%ar%Creset %s'
+	lga = !git lg --all
+	lgn = !git lg -n
+	lgan = !git lg --all -n
 	lg1 = !git lg
+	lg1a = !git lga
+	lg1n = !git lgn
+	lg1an = !git lgan
 	lg2 = log -n 20 --color --graph --pretty=format:'%C(bold red)%h%Creset - %C(green)%<(20)%ar%Creset %<(80,trunc)%s %C(bold yellow)%d%Creset'
+	lg2a = !git lg2 --all
+	lg2n = !git lg2 -n
+	lg2an = !git lg2 --all -n
 	lg3 = log -n 10 --color --graph --pretty=format:'%C(bold red)%h%Creset - %C(bold green)%ai (%ar)%Creset %C(green)%cr%Creset %C(bold yellow)%d%Creset%n          %s %C(cyan)<%an>%Creset%n'
+	lg3a = !git lg3 --all
+	lg3n = !git lg3 -n
+	lg3an = !git lg3 --all -n
 [color.status]
 	changes = bold red
 	untracked = bold red
@@ -39,4 +51,3 @@
 	old = bold red
 [diff]
 	compactionHeuristic = true
-
