@@ -4,7 +4,7 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-	autocrlf = false
+	autocrlf = input
 
 [alias]
 	ap = add --patch
@@ -43,7 +43,7 @@
 	lg3n = !git lg3 -n
 	lg3an = !git lg3 --all -n
 [color.status]
-	changes = bold red
+	changed = bold red
 	untracked = bold red
 	added = bold green
 [color.diff]

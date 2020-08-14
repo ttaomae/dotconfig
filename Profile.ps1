@@ -5,6 +5,7 @@ Set-PSReadlineOption -BellStyle None
 Set-Alias -Name vi  -Value nvim
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name cat -Value bat -Option AllScope
+Set-Alias -Name exp -Value explorer
 
 # ctrl-d ==> exit PowerShell.
 Set-PSReadlineKeyHandler -Chord ctrl+d -Function ViExit
