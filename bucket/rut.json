@@ -1,10 +1,10 @@
 {
     "homepage": "https://github.com/ttaomae/rut",
     "description": "`cut`, but with regular expressions.",
-    "version": "0.1.0",
-    "url": "https://github.com/ttaomae/rut/releases/download/v0.1.0/rut-v0.1.0-x86_64-pc-windows-msvc.zip",
-    "hash": "",
-    "extract_dir": "rut-v0.1.0-x86_64-pc-windows-msvc",
+    "version": "0.1.1",
+    "url": "https://github.com/ttaomae/rut/releases/download/v0.1.1/rut-v0.1.1-x86_64-pc-windows-msvc.zip",
+    "hash": "7fa4dc59969ced74a164105477b8998c14155fadcd8efaa3e664ac7944715f92",
+    "extract_dir": "rut-v0.1.1-x86_64-pc-windows-msvc",
     "bin": ["rut.exe"]
 }
 
