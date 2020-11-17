@@ -1,12 +1,31 @@
 {
     "homepage": "https://visualvm.github.io/",
     "description": "VisualVM is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.",
-    "version": "1.4.4",
-    "url": "https://github.com/visualvm/visualvm.src/releases/download/1.4.4/visualvm_144.zip",
-    "hash": "7c75dabebd960d72cbc47a149c0b029753fbb32320e86816bca6d06cf6e7a015",
-    "extract_dir": "visualvm_144",
+    "version": "2.0.4",
+    "url": "https://github.com/oracle/visualvm/releases/download/2.0.4/visualvm_204.zip",
+    "hash": "dc5fc38089a16507b973af196c994cd4af3bd320dc3202bae4aad13f8ae3c1f4",
+    "extract_dir": "visualvm_204",
     "bin": [
-        ["bin\\visualvm.exe", "visualvm", "--console", "suppress", "--jdkhome", "$env:JAVA_HOME"],
-        ["bin\\visualvm.exe", "visualvm-console", "--jdkhome", "$env:JAVA_HOME"]
-    ]
+        [
+            "bin\\visualvm.exe",
+            "visualvm",
+            "--console",
+            "suppress",
+            "--jdkhome",
+            "$env:JAVA_HOME"
+        ],
+        [
+            "bin\\visualvm.exe",
+            "visualvm-console",
+            "--jdkhome",
+            "$env:JAVA_HOME"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/oracle/visualvm/"
+    },
+    "autoupdate": {
+        "url": "https://github.com/oracle/visualvm/releases/download/$version/visualvm_$cleanVersion.zip",
+        "extract_dir": "visualvm_$cleanVersion"
+    }
 }
