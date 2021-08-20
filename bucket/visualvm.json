@@ -1,10 +1,10 @@
 {
     "homepage": "https://visualvm.github.io/",
     "description": "VisualVM is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.",
-    "version": "2.0.6",
-    "url": "https://github.com/oracle/visualvm/releases/download/2.0.6/visualvm_206.zip",
-    "hash": "ba1394b2ce542cb51f66cf694d29a33b009d28a85c4320e2c6561e48d306d78d",
-    "extract_dir": "visualvm_206",
+    "version": "2.1",
+    "url": "https://github.com/oracle/visualvm/releases/download/2.1/visualvm_21.zip",
+    "hash": "40803e02fdbc49c7db1a45bc577d78cea65aef9a38bfff402482500fdae2d072",
+    "extract_dir": "visualvm_21",
     "bin": [
         [
             "bin\\visualvm.exe",
