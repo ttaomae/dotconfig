@@ -6,7 +6,7 @@ scoop bucket add ttaomae https://github.com/ttaomae/dotconfig
 
 scoop install `
     <# development #> `
-    extras/conemu git java/adopt11-hotspot maven ttaomae/visualvm
+    extras/conemu git delta java/adopt11-hotspot maven ttaomae/visualvm
     <# utilites #> `
     7zip neovim ripgrep vagrant bat less
     <# admin #> `

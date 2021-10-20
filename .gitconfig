@@ -42,6 +42,7 @@
 	lg3a = !git lg3 --all
 	lg3n = !git lg3 -n
 	lg3an = !git lg3 --all -n
+	dfside = -c pager.diff='delta --line-numbers --syntax-theme=DarkNeon --side-by-side' diff
 [color.status]
 	changed = bold red
 	untracked = bold red
@@ -51,3 +52,9 @@
 	old = bold red
 [diff]
 	compactionHeuristic = true
+
+[interactive]
+	diffFilter = delta --color-only --keep-plus-minus-markers
+
+[pager]
+	diff = delta --line-numbers --syntax-theme=DarkNeon
