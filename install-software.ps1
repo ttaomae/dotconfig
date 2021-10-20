@@ -10,5 +10,5 @@ scoop install `
     <# utilites #> `
     7zip neovim ripgrep vagrant bat less
     <# admin #> `
-    extras/rapidee extras/windirstat ttaomae/procexp
+    extras/rapidee extras/windirstat extras/sysinternals
 
