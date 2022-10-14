@@ -55,6 +55,8 @@
 
 [interactive]
 	diffFilter = delta --color-only --keep-plus-minus-markers
+[add.interactive]
+	useBuiltin = false
 
 [pager]
 	diff = delta --line-numbers --syntax-theme=DarkNeon
