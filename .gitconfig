@@ -19,6 +19,7 @@
 	st = status
 	ci = commit --verbose
 	cia = commit --amend --verbose
+	cim = commit --message
 	br = branch
 	rb = rebase
 	rbi = rebase --interactive
