@@ -37,11 +37,11 @@ The `install-software.ps1` script automatically adds it with the name `ttaomae`.
 ## Configuration Files
 The following configuration files are provided.
 
-| Application | File | Target Path |
+| Application | File / Folder | Target Path |
 |---|---|---|
 | Git | `.gitconfig` | `~/.gitconfig` |
 | Git | `.gitignore_global` | `~/.gitignore_global` |
-| Neovim | `.vimrc` | `~/.config/nvim/init.vim` (Unix) <br> `~\AppData\Local\nvim\init.vim` (Windows) |
+| Neovim | `nvim/` | `~/.config/nvim/` (Unix) <br> `~\AppData\Local\nvim\` (Windows) |
 | Visual Studio Code | `vscode.settings.json` | `~\AppData\Roaming\Code\User\settings.json` (Windows) |
 | PowerShell | `Profile.ps1` | `~\Documents\WindowsPowerShell\Profile.ps1` (Windows) |
 | PowerShell Core | `Profile.ps1` | `~\Documents\PowerShell\Profile.ps1` (Windows) |
