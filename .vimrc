@@ -1,7 +1,9 @@
 set fileformat=unix  " Use Unix-style EOL when creating files.
 set fileformats=unix,dos  " Read using Windows-style EOL if necessary.
 
-" Use 4 space indentation. Use spaces instead of tab. 
+set mouse=i  " Enable Mouse support in insert mode only.
+
+" Use 4 space indentation. Use spaces instead of tab.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
