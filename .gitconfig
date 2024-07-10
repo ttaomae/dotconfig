@@ -21,6 +21,7 @@
 	cia = commit --amend --verbose
 	cim = commit --message
 	br = branch
+	sw = switch
 	rb = rebase
 	rbi = rebase --interactive
 	rbc = rebase --continue
@@ -56,8 +57,6 @@
 
 [interactive]
 	diffFilter = delta --color-only --keep-plus-minus-markers
-[add.interactive]
-	useBuiltin = false
 
 [pager]
 	diff = delta --line-numbers --syntax-theme=DarkNeon
