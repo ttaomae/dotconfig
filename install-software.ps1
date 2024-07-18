@@ -1,3 +1,7 @@
+winget install --source winget --id Microsoft.PowerToys
+winget install --source winget --id Microsoft.PowerShell
+winget install --source winget --id Microsoft.WindowsTerminal
+
 Invoke-WebRequest https://get.scoop.sh | Invoke-Expression
 
 scoop bucket add extras
@@ -8,9 +12,10 @@ scoop install `
     <# development #> `
     git delta `
     <# Java #> `
-    java/openjdk maven ttaomae/visualvm jmc `
+    java/temurin-jdk maven java/visualvm java/jmc `
     <# utilites #> `
-    7zip neovim ripgrep vagrant bat less `
+    7zip neovim ripgrep vagrant bat less ttaomae/rut `
     <# admin #> `
-    extras/rapidee extras/windirstat extras/sysinternals
+    extras/windirstat extras/sysinternals
+
 
