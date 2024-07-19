@@ -12,22 +12,70 @@ Set-PSReadlineKeyHandler -Chord ctrl+d -Function ViExit
 # ctrl-w ==> delete word.
 Set-PSReadlineKeyHandler -Chord ctrl+w -Function BackwardDeleteWord
 
-function prompt() {
-    $err = $?
-    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal( [Security.Principal.WindowsIdentity]::GetCurrent() )
+$Global:__LastHistoryId = -1
 
-    if (!$err) {
-        Write-Host -NoNewline -ForegroundColor Red 'ERROR '
+# Copied from Windows Terminal Shell Integration docs.
+# https://learn.microsoft.com/en-us/windows/terminal/tutorials/shell-integration
+function Global:__Terminal-Get-LastExitCode {
+    if ($? -eq $True) {
+        return 0
     }
 
+    $LastHistoryEntry = $(Get-History -Count 1)
+    $IsPowerShellError = $Error[0].InvocationInfo.HistoryId -eq $LastHistoryEntry.Id
+    if ($IsPowerShellError) {
+        return -1
+    }
+
+    return $LASTEXITCODE
+}
+
+# Adapted from shell integration docs.
+function prompt {
+    # This must be called before any commands are executed in this function.
+    $lec = $(__Terminal-Get-LastExitCode);
+    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal( [Security.Principal.WindowsIdentity]::GetCurrent() )
+
+    $LastHistoryEntry = $(Get-History -Count 1)
+    # Emit FTCS_COMMAND_FINISHED (end of command) code, but skip if this is the first command.
+    if ($Global:__LastHistoryId -ne -1) {
+        # Do not include exit code if there was no new command.
+        # This can happen, for example, when pressing ctrl+c or enter on an empty command.
+        if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
+            Write-Host -NoNewLine "`e]133;D`a"
+        }
+        else {
+            Write-Host -NoNewLine "`e]133;D;$lec`a"
+        }
+    }
+
+    # Emit FTCS_PROMPT (start of prompt) code.
+    Write-Host -NoNewLine "`e]133;A`a"
+    $cwd = Get-Location
+    # Emit current working diretory code: https://github.com/microsoft/terminal/issues/8166
+    Write-Host -NoNewLine "`e]9;9;`"$cwd`"`a"
+
+    # Display exit code in case of error.
+    if ($lec -ne 0) {
+        Write-Host -NoNewline -ForegroundColor Red "[ERROR $lec] "
+    }
+
+    # Display username and include "/admin" suffix if applicable.
     if ($currentPrincipal.IsInRole( [Security.Principal.WindowsBuiltInRole]::Administrator )) {
-        Write-Host -NoNewline -ForegroundColor Magenta "admin"
+        Write-Host -NoNewline -ForegroundColor Magenta "$($env:username)/admin "
     } else {
         Write-Host -NoNewline -ForegroundColor Cyan "$($env:username) "
     }
 
-    Write-Host -ForegroundColor Cyan $(Get-Location)
+    # Display current directory. Include new line so that the date prompt is on the next line.
+    # This keeps the prompt where the command is entered short and consistently sized.
+    Write-Host -ForegroundColor Cyan $cwd
+    Write-Host -NoNewline -ForegroundColor Green "$(Get-Date -Format "hh:mm:sstt") $('>' * ($nestedPromptLevel + 1)) "
 
-    Write-Host -NoNewline -ForegroundColor Green $(Get-Date -Format "hh:mm:sstt") '>>'
-    return ' '
+    $Global:__LastHistoryId = $LastHistoryEntry.Id
+
+    # Emit FTCS_COMMAND_START (start of command line) code.
+    return "`e]133;B`a"
+    # Windows Terminal settings must include `"autoMarkPrompts": true,` to automatically emit
+    # FCTS_COMMAND_EXECUTED (start of command output) code at the appropriate location.
 }
