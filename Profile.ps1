@@ -32,9 +32,16 @@ function Global:__Terminal-Get-LastExitCode {
 
 # Adapted from shell integration docs.
 function prompt {
-    # This must be called before any commands are executed in this function.
+    # This must be the first command in this function. Otherwise it will return the result of the
+    # most recent command in the function rather than the prompt command.
     $lec = $(__Terminal-Get-LastExitCode);
-    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal( [Security.Principal.WindowsIdentity]::GetCurrent() )
+
+    # `Get-Location` on its own behaves poorly with the current working directory code
+    # (see "`e]9;9;...`a" below) when the path is on a network share.
+    $cwd = (Get-Location).ProviderPath
+
+    # Set window title to include the current directory name.
+    $Host.UI.RawUI.WindowTitle = "PWSH > $($cwd | Split-Path -Leaf)"
 
     $LastHistoryEntry = $(Get-History -Count 1)
     # Emit FTCS_COMMAND_FINISHED (end of command) code, but skip if this is the first command.
@@ -51,7 +58,6 @@ function prompt {
 
     # Emit FTCS_PROMPT (start of prompt) code.
     Write-Host -NoNewLine "`e]133;A`a"
-    $cwd = Get-Location
     # Emit current working diretory code: https://github.com/microsoft/terminal/issues/8166
     Write-Host -NoNewLine "`e]9;9;`"$cwd`"`a"
 
@@ -61,6 +67,7 @@ function prompt {
     }
 
     # Display username and include "/admin" suffix if applicable.
+    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal( [Security.Principal.WindowsIdentity]::GetCurrent() )
     if ($currentPrincipal.IsInRole( [Security.Principal.WindowsBuiltInRole]::Administrator )) {
         Write-Host -NoNewline -ForegroundColor Magenta "$($env:username)/admin "
     } else {
