@@ -49,17 +49,17 @@ function prompt {
         # Do not include exit code if there was no new command.
         # This can happen, for example, when pressing ctrl+c or enter on an empty command.
         if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
-            Write-Host -NoNewLine "`e]133;D`a"
+            Write-OscSequence "133;D"
         }
         else {
-            Write-Host -NoNewLine "`e]133;D;$lec`a"
+            Write-OscSequence "133;D;$lec"
         }
     }
 
     # Emit FTCS_PROMPT (start of prompt) code.
-    Write-Host -NoNewLine "`e]133;A`a"
+    Write-OscSequence "133;A"
     # Emit current working diretory code: https://github.com/microsoft/terminal/issues/8166
-    Write-Host -NoNewLine "`e]9;9;`"$cwd`"`a"
+    Write-OscSequence "9;9;`"$cwd`""
 
     # Display exit code in case of error.
     if ($lec -ne 0) {
@@ -77,12 +77,24 @@ function prompt {
     # Display current directory. Include new line so that the date prompt is on the next line.
     # This keeps the prompt where the command is entered short and consistently sized.
     Write-Host -ForegroundColor Cyan $cwd
-    Write-Host -NoNewline -ForegroundColor Green "$(Get-Date -Format "hh:mm:sstt") $('>' * ($nestedPromptLevel + 1)) "
+    Write-Host -NoNewline -ForegroundColor Green "$(Get-Date -Format "hh:mm:sstt") $('>' * ($nestedPromptLevel + 1))"
 
     $Global:__LastHistoryId = $LastHistoryEntry.Id
 
     # Emit FTCS_COMMAND_START (start of command line) code.
-    return "`e]133;B`a"
+    Write-OscSequence "133;B"
+
     # Windows Terminal settings must include `"autoMarkPrompts": true,` to automatically emit
     # FCTS_COMMAND_EXECUTED (start of command output) code at the appropriate location.
+    return " "
+}
+
+function Write-OscSequence {
+    param(
+        [Parameter(Mandatory, Position=0)]
+        [string] $Code
+    )
+
+    Write-Host -NoNewline "`e]$Code`a"
+}
 }
