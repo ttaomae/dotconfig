@@ -89,12 +89,94 @@ function prompt {
     return " "
 }
 
+<#
+    .SYNOPSIS
+    Writes an ANSI escape code OSC (Operating System Code) sequence.
+
+    .DESCRIPTION
+    Writes an OSC sequence to the console. Does not write to the pipeline.
+
+    .PARAMETER Code
+    OSC sequence to write.
+
+    .LINK
+    ANSI Escape Codes: https://en.wikipedia.org/wiki/ANSI_escape_code
+
+    .LINK
+    Write-Host
+#>
 function Write-OscSequence {
     param(
-        [Parameter(Mandatory, Position=0)]
+        [Parameter(Mandatory, Position = 0)]
         [string] $Code
     )
 
     Write-Host -NoNewline "`e]$Code`a"
 }
+
+<#
+    .SYNOPSIS
+    Sets the terminal progress status.
+
+    .DESCRIPTION
+    Uses OSC sequence to set the progress of the current terminal window.
+
+    Requires a compatible terminal such as Windows Terminal.
+
+    .PARAMETER Clear
+    Clear the current progress.
+
+    .PARAMETER Indeterminate
+    Sets the progress to indeterinate state.
+
+    .PARAMETER Amount
+    Sets the current progress amount as a number between 0 and 100.
+
+    .PARAMETER Warning
+    Sets the progress to warning state.
+
+    .PARAMETER Error
+    Sets the progress to error state.
+
+    .LINK
+    Related Windows Terminal Issue: https://github.com/microsoft/terminal/issues/6700
+
+    .LINK
+    Write-OscSequence
+#>
+function Set-Progress {
+    param(
+        [Parameter(ParameterSetName = "Clear")]
+        [switch] $Clear,
+
+        [Parameter(ParameterSetName = "Error")]
+        [switch] $Error,
+
+        [Parameter(ParameterSetName = "Indeterminate")]
+        [switch] $Indeterminate,
+
+        [Parameter(ParameterSetName = "Warning")]
+        [switch] $Warning,
+
+        [Parameter(ParameterSetName = "Amount", Position = 0)]
+        [ValidateRange(0, 100)]
+        [int] $Amount
+    )
+
+    if ($Clear) {
+        Write-OscSequence "9;4;0"
+    }
+    elseif ($Error) {
+        Write-OscSequence "9;4;2"
+    }
+    elseif ($Indeterminate) {
+        Write-OscSequence "9;4;3"
+    }
+    elseif ($Warning) {
+        Write-OscSequence "9;4;4"
+    }
+    else {
+        $amt = [int]::Clamp($Amount, 0, 100)
+        Write-OscSequence "9;4;1;$amt"
+    }
 }
