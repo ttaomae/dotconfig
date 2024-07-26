@@ -1,7 +1,5 @@
 Set-PSReadlineOption -BellStyle None
 
-# Set-Location "set/preferred/default/location/here"
-
 Set-Alias -Name vi  -Value nvim
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name cat -Value bat -Option AllScope

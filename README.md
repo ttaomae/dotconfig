@@ -51,8 +51,9 @@ The following configuration files are provided.
 |---|---|---|
 | Git | `.gitconfig` | `~/.gitconfig` |
 | Git | `.gitignore_global` | `~/.gitignore_global` |
-| Neovim | `nvim/` | `~/.config/nvim/` (Unix) <br> `~\AppData\Local\nvim\` (Windows) |
-| Visual Studio Code | `vscode.settings.json` | `~\AppData\Roaming\Code\User\settings.json` (Windows) |
+| Neovim | `nvim/` | `~/.config/nvim/` (Unix) <br> `%APPDATALOCAL%\nvim\` (Windows) |
+| Visual Studio Code | `vscode.settings.json` | `%APPDATA%\Code\User\settings.json` (Windows) |
+| Windows Terminal | `terminal.settings.json` | `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` (Windows) |
 | PowerShell | `Profile.ps1` | `~\Documents\WindowsPowerShell\Profile.ps1` (Windows) |
 | PowerShell Core | `Profile.ps1` | `~\Documents\PowerShell\Profile.ps1` (Windows) |
 
