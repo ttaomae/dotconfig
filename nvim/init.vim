@@ -1,6 +1,6 @@
 lua require('init')
 
-colorscheme onedark
+colorscheme dracula
 
 set fileformat=unix  " Use Unix-style EOL when creating files.
 set fileformats=unix,dos  " Read using Windows-style EOL if necessary.
@@ -28,6 +28,7 @@ set sidescroll=1
 " Show tab, trailing spaces, and line wraps.
 set list
 set listchars=tab:»-,trail:~,extends:›,precedes:‹
+set showbreak=↪\ 
 
 set showmatch  " Highlight matching brackets.
 
