@@ -27,9 +27,6 @@ The `install-software.ps1` script will install the following software:
     * [WinDirStat](https://windirstat.net/)
     * [Sysinternals](https://learn.microsoft.com/en-us/sysinternals/)
 
-various a collection of software.[Scoop](https://scoop.sh/), then
-use Scoop to install the following software:
-
 Script execution must be enabled to run the installation script. Additionally,
 many of the software are installed and managed by [Scoop](https://scoop.sh/)
 which also requires script execution, so do not disable it after the
