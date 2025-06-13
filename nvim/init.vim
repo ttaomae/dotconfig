@@ -1,6 +1,6 @@
 lua require('init')
 
-colorscheme dracula
+colorscheme sonokai
 
 set fileformat=unix  " Use Unix-style EOL when creating files.
 set fileformats=unix,dos  " Read using Windows-style EOL if necessary.

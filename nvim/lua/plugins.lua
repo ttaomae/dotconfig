@@ -14,7 +14,9 @@ return {
     "norcalli/nvim-colorizer.lua",
 
     -- Colorschemes.
+    { "sainnhe/sonokai", priority = 1000 },
     { "dracula/vim", name = "dracula", priority = 1000 },
+    { "folke/tokyonight.nvim", name = "tokyonight", priority = 1000 },
     { "rebelot/kanagawa.nvim", priority = 1000 },
     { "edeneast/nightfox.nvim", priority = 1000 },
     { "navarasu/onedark.nvim", priority = 1000, opts = { style = "warmer" } },
