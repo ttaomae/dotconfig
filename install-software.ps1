@@ -6,6 +6,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
 scoop bucket add extras
 scoop bucket add java
+scoop bucket add nerd-fonts
 scoop bucket add ttaomae https://github.com/ttaomae/dotconfig
 
 scoop install `
@@ -16,6 +17,6 @@ scoop install `
     <# utilites #> `
     neovim ripgrep vagrant bat less ttaomae/rut `
     <# utilities / admin #> `
-    7zip extras/windirstat extras/sysinternals
-
-
+    7zip extras/windirstat extras/sysinternals `
+    <# fonts #> `
+    nerd-fonts/CascadiaMono-NF
