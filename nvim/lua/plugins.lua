@@ -2,6 +2,8 @@ return {
     -- Highlighting.
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = { "OXY2DEV/markview.nvim" },
+        lazy = false,
         build = ":TSUpdate",
         config = function ()
             local configs = require("nvim-treesitter.configs")
@@ -33,6 +35,17 @@ return {
     -- Editing.
     "tpope/vim-commentary",
     "tpope/vim-surround",
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+        priority = 49,
+        opts = {
+            preview = {
+                modes = { "n", "no", "c", "i", "v", "V" },
+                hybrid_modes = { "n", "i", "v", "V" },
+            }
+        }
+    },
 
     -- Status line.
     "vim-airline/vim-airline",
