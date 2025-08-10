@@ -59,3 +59,6 @@ set splitright " :vsplit right
 set foldmethod=expr
 set foldexpr=vim.treesitter.foldexpr()
 set nofoldenable " Do not fold all when opening file
+
+set textwidth=100
+set colorcolumn=+1

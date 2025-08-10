@@ -1,5 +1,12 @@
 return {
-    -- Highlighting.
+    -- Display / highlighting.
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+    },
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = { "OXY2DEV/markview.nvim" },
@@ -36,6 +43,7 @@ return {
     -- Editing.
     "tpope/vim-commentary",
     "tpope/vim-surround",
+    "tpope/vim-repeat",
     "othree/xml.vim",
     {
         "OXY2DEV/markview.nvim",
