@@ -10,6 +10,7 @@ return {
             configs.setup({
                 ensure_installed = {
                     "markdown", "markdown_inline",
+                    "xml", "html",
                     "lua", "luadoc",
                     "vim", "vimdoc"
                 },
@@ -35,6 +36,7 @@ return {
     -- Editing.
     "tpope/vim-commentary",
     "tpope/vim-surround",
+    "othree/xml.vim",
     {
         "OXY2DEV/markview.nvim",
         lazy = false,
