@@ -55,3 +55,7 @@ filetype indent on  " Load indent files for specific file types.
 
 set splitbelow " :split below
 set splitright " :vsplit right
+
+set foldmethod=expr
+set foldexpr=vim.treesitter.foldexpr()
+set nofoldenable " Do not fold all when opening file
